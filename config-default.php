@@ -25,6 +25,7 @@ return array(
     'db_path'       => '/var/www/sqlite',
     'db_name'       => 'ctSESAM-server.sqlite',
     'db_persistent' => true,
+#    'db_engine'     => 'pgsql',
 #    'db_engine'     => 'mysql',
 #    'db_host'       => 'localhost',
 #    'db_name'       => 'sesam',

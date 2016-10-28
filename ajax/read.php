@@ -26,12 +26,12 @@ assert_basic_auth();
 $res = array('userid' => $authenticated_user);
 
 if ($dbh) {
-    $sth = $dbh->prepare('SELECT * FROM `domains` WHERE `userid` = :userid');
+    $sth = $dbh->prepare('SELECT * FROM domains WHERE userid = :userid');
     $sth->bindParam(':userid', $authenticated_user, PDO::PARAM_STR);
     $result = $sth->execute();
     $r = $sth->fetch(PDO::FETCH_ASSOC);
     if ($r) {
-        $res['result'] = $r['data'];
+        $res['result'] = stream_get_contents($r['data']);
     }
 } else {
     sendResponse(array(

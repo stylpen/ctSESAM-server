@@ -30,7 +30,7 @@ if (!$dbh) {
     ));
 }
 
-$sth = $dbh->prepare('DELETE FROM `domains` WHERE `userid` = :userid');
+$sth = $dbh->prepare('DELETE FROM domains WHERE userid = :userid');
 $sth->bindParam(':userid', $authenticated_user, PDO::PARAM_STR);
 $result = $sth->execute();
 
